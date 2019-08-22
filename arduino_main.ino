@@ -156,7 +156,8 @@ void loop() {
   // put your main code here, to run repeatedly:
   uint8_t ok_flag = 1;
   for(int i = 0; i < CHANNELS; i++) {
-    Serial.print(cmd[i]);
+    if(cmd[i] >= 1000) Serial.print(cmd[i]);
+    else if(cmd[i] < 1000) Serial.print(1000);
     Serial.print(" ");
   }
   Serial.println("");
